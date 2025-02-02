@@ -15,13 +15,24 @@ interface IProduct {
     selected: boolean;
 }
 
-interface ICatalog {
+/*interface ICatalog {
     items: IProduct[];
     setItems(items: IProduct[]): void;
     getProduct(id: number): IProduct;
-}
+}*/
 
 interface ICart {
     items: IProduct[];
+    total: number;
+}
 
+interface IOrder {
+    //items: IProduct[];
+    //total: number;
+    //или
+    cart: ICart;
+    payment: string;
+    address: string;
+    email: string;
+    phone: string;
 }

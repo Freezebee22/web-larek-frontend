@@ -11,26 +11,23 @@ interface IProduct {
     description: string;
     icon: string;
     cost: number | null;
-    category: string;
-    selected: boolean;
+    category: Category;
+    inCart: boolean;
 }
 
-/*interface ICatalog {
+interface ICatalog {
     items: IProduct[];
     setItems(items: IProduct[]): void;
-    getProduct(id: number): IProduct;
-}*/
+    getProduct(id: number): IProduct | null;
+}
 
 interface ICart {
     items: IProduct[];
-    total: number;
+    totalCost: number;
 }
 
 interface IOrder {
-    //items: IProduct[];
-    //total: number;
-    //или
-    cart: ICart;
+    items: IProduct[];
     payment: string;
     address: string;
     email: string;

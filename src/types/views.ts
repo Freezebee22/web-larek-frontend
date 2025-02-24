@@ -1,4 +1,4 @@
-interface ICatalogView {
+/*interface ICatalogView {
     render(products: IProduct[]): void;
     onProductClick(callback: (id: number) => void): void;
 }
@@ -25,5 +25,5 @@ interface IOrderView {
 interface ISuccessView {
     show(): void;
     onClose(callback: () => void): void;
-}
+}*/
 

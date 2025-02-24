@@ -1,10 +1,10 @@
-interface ICatalogModel {
+/*interface ICatalogModel {
     getProducts(): Promise<IProduct[]>;
     getProductById(id: string): Promise<IProduct | null>;
 }
 
 interface ICartModel {
-    getCartItems(): IProduct[];
+    getCartItems(): Promise<IProduct[]>;
     addToCart(product: IProduct): void;
     removeFromCart(id: string): void;
     clearCart(): void;
@@ -14,4 +14,4 @@ interface ICartModel {
 interface IOrderModel {
     validateOrder(order: IOrder): boolean;
     submitOrder(order: IOrder): Promise<boolean>;
-}
+}*/

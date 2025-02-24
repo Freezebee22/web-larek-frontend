@@ -17,8 +17,6 @@ export interface IProduct {
 
 interface ICatalog {
     items: IProduct[];
-    //setItems(items: IProduct[]): void;
-    //getProduct(id: number): IProduct | null;
 }
 
 interface ICart {
@@ -37,6 +35,16 @@ interface IAppState {
     delivery: IDeliveryForm | null;
     contact: IContactForm | null;
     order: IOrder | null;
+    clearCart(): void;
+    clearOrder(): void;
+    setCatalog(): void;
+    addToCart(): void;
+    removeFromCart(): void;
+    updateCart(): void; // будет оповещать всех об изменении корзины
+    takeDeliveryField(field: keyof IDeliveryForm, value: string): void;
+    takeContactField(field: keyof IContactForm, value: string): void;
+    validateDelivery(): boolean;
+    validateContact(): boolean;
 }
 
 interface IDeliveryForm {
@@ -47,6 +55,17 @@ interface IDeliveryForm {
 interface IContactForm {
     email: string;
     phone: string;
+}
+
+// проверка валидности формы
+export interface IFormState {
+    valid: boolean;
+    errors: string[];
+}
+
+// отображаемый контент в модальном окне
+export interface IModal {
+    content: HTMLElement;
 }
 
 // типы для ивентов
@@ -63,6 +82,7 @@ export interface IEvents {
     trigger<T extends object>(event: string, context?: Partial<T>): (data: T) => void;
 }
 
+// типы для апишек
 export type ApiListResponse<Type> = {
     total: number,
     items: Type[]

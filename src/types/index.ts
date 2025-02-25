@@ -46,16 +46,16 @@ interface IAppState {
     delivery: IDeliveryForm | null;
     contact: IContactForm | null;
     order: IOrder | null;
-    clearCart(): void;
-    clearOrder(): void;
-    setCatalog(): void;
-    addToCart(): void;
-    removeFromCart(): void;
+    clearCart(): void; // очистка всей корзины
+    clearOrder(): void; // очистка заказа
+    setCatalog(items: IProduct[]): void; // установить товары в каталог
+    addToCart(item: IProduct): void; // добавить в корзину товар
+    removeFromCart(id: string): void; // удалить из корзины товар
     updateCart(): void; // будет оповещать всех об изменении корзины
-    takeDeliveryField(field: keyof IDeliveryForm, value: string): void;
-    takeContactField(field: keyof IContactForm, value: string): void;
-    validateDelivery(): boolean;
-    validateContact(): boolean;
+    takeDeliveryField(field: keyof IDeliveryForm, value: string): void; // установить значение в данные доставки
+    takeContactField(field: keyof IContactForm, value: string): void; // установить значение в данные контактов
+    validateDelivery(): boolean; // валидация данных доставки
+    validateContact(): boolean; // валидация данных контактов
 }
 
 interface IPage {

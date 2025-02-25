@@ -7,7 +7,7 @@ interface IComponent {
 }
 
 abstract class Component<T> {
-     constructor(container: HTMLElement) {};
+     constructor(protected container: HTMLElement) {};
 
     render(data: Partial<T>) {};
     //... другие общие методы для компонентов отображения (указаны в интерфейсе)

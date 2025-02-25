@@ -15,6 +15,12 @@ export interface IProduct {
     inCart: boolean;
 }
 
+interface Card extends IProduct {
+    button?: HTMLElement;
+    buttonTitle?: string;
+    disablePriceButton(): void;
+}
+
 interface ICatalog {
     items: IProduct[];
 }
@@ -26,6 +32,11 @@ interface ICart {
 
 interface IOrder extends IDeliveryForm, IContactForm {
     cart: ICart;
+    total: number;
+}
+
+interface IOrderResult {
+    id: string;
     total: number;
 }
 
@@ -45,6 +56,17 @@ interface IAppState {
     takeContactField(field: keyof IContactForm, value: string): void;
     validateDelivery(): boolean;
     validateContact(): boolean;
+}
+
+interface IPage {
+    catalog: HTMLElement[];
+    counter: number;
+}
+
+interface IApi {
+    getProducts(): Promise<IProduct[]>;
+    getProduct(id: string): Promise<IProduct>;
+    orderProducts(order: IOrder): Promise<IOrderResult>;
 }
 
 interface IDeliveryForm {

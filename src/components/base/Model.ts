@@ -1,6 +1,8 @@
-import { IProduct, Category } from "../../types";
+import { IProduct, Category, IEvents } from "../../types";
 
 abstract class Model<T> {
+    constructor(data: Partial<T>, events: IEvents) {};
+
     emitChanges(event: string) {
         //сообщение об изменении модели
     };

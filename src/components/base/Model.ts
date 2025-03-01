@@ -1,12 +1,12 @@
 import { IProduct, Category, IEvents } from "../../types";
 
-abstract class Model<T> {
+export abstract class Model<T> {
     constructor(protected data: Partial<T>, protected events: IEvents) {
         Object.assign(this, data);
     };
 
-    emitChanges(event: string) {
-        //сообщение об изменении модели
+    emitChanges(event: string, data?: object) {
+        this.events.emit(event, data ?? {});
     };
 }
 

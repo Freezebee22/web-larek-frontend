@@ -5,6 +5,8 @@ export type Category =
     'другое'|
     'дополнительное';
 
+export type FormErrors = Partial<Record<keyof IOrder, string>>;
+
 export interface IProduct {
     id: string;
     name: string;
@@ -21,17 +23,17 @@ interface Card extends IProduct {
     disablePriceButton(): void;
 }
 
-interface ICatalog {
+export interface ICatalog {
     items: IProduct[];
 }
 
-interface ICart {
-    items: IProduct[];
+export interface ICart {
+    items: ICatalog;
     totalCost: number;
 }
 
-interface IOrder extends IDeliveryForm, IContactForm {
-    cart: ICart;
+export interface IOrder extends IDeliveryForm, IContactForm {
+    cart: IProduct[];
     total: number;
 }
 
@@ -40,9 +42,9 @@ interface IOrderResult {
     total: number;
 }
 
-interface IAppState {
-    catalog: ICatalog;
-    cart: ICart;
+export interface IAppState {
+    catalog: IProduct;
+    cart: IProduct;
     delivery: IDeliveryForm | null;
     contact: IContactForm | null;
     order: IOrder | null;
@@ -58,23 +60,23 @@ interface IAppState {
     validateContact(): boolean; // валидация данных контактов
 }
 
-interface IPage {
+export interface IPage {
     catalog: HTMLElement[];
     counter: number;
 }
 
-interface IApi {
+export interface IApi {
     getProducts(): Promise<IProduct[]>;
     getProduct(id: string): Promise<IProduct>;
     orderProducts(order: IOrder): Promise<IOrderResult>;
 }
 
-interface IDeliveryForm {
+export interface IDeliveryForm {
     payment: string;
     address: string;
 }
 
-interface IContactForm {
+export interface IContactForm {
     email: string;
     phone: string;
 }

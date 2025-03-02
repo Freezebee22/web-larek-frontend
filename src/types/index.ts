@@ -17,8 +17,8 @@ export interface IProduct {
     inCart: boolean;
 }
 
-interface Card extends IProduct {
-    button?: HTMLElement;
+export interface ICard extends IProduct {
+    index?: string;
     buttonTitle?: string;
     disablePriceButton(): void;
 }
@@ -90,6 +90,10 @@ export interface IFormState {
 // отображаемый контент в модальном окне
 export interface IModal {
     content: HTMLElement;
+}
+
+export interface IActions {
+    action: (event: MouseEvent) => void;
 }
 
 // типы для ивентов

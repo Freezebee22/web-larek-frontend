@@ -6,7 +6,7 @@ interface IComponent {
     setImage(element: HTMLImageElement, src: string, alt?: string): void;
 }
 
-abstract class Component<T> implements IComponent {
+export abstract class Component<T> implements IComponent {
     constructor(protected container: HTMLElement) {};
 
     render(data?: Partial<T>): HTMLElement {
@@ -24,6 +24,15 @@ abstract class Component<T> implements IComponent {
 
     setVisible(element: HTMLElement) {
         element.style.removeProperty('display');
+    }
+
+    setDisabled(element: HTMLElement, state: boolean) {
+        if (element) {
+            if (state) 
+                element.setAttribute('disabled', 'disabled');
+            else 
+                element.removeAttribute('disabled');
+        }
     }
 
     setText(element: HTMLElement, value: unknown) {

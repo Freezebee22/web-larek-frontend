@@ -12,10 +12,10 @@ export abstract class Model<T> {
 
 export class Product extends Model<IProduct> {
     id: string;
-    name: string;
+    title: string;
     description: string;
-    icon: string;
-    cost: number | null;
+    image: string;
+    price: number | null;
     category: Category;
     inCart: boolean;
 }

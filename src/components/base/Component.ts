@@ -40,8 +40,10 @@ export abstract class Component<T> implements IComponent {
     }
 
     setImage(element: HTMLImageElement, src: string, alt?: string) {
-        element.src = src;
-        if (alt)
-            element.alt = alt;
+        if (element) {
+            element.src = src;
+            if (alt)
+                element.alt = alt;
+        }
     }
 }

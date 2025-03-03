@@ -5,6 +5,7 @@ export class AppData extends Model<IAppState> {
     catalog: Product[];
     cart: Product[] = [];
     formErrors: FormErrors = {};
+    preview: string | null;
     order: IOrder = {
         payment: 'online',
         address: '',
@@ -31,8 +32,15 @@ export class AppData extends Model<IAppState> {
     }
 
     setCatalog(items: IProduct[]) {
-        this.catalog = items.map(item => new Product(item, this.events));
+        this.catalog = items.map(item => {
+            return new Product(item, this.events);
+        });
         this.emitChanges('catalog:changed', {catalog: this.catalog});
+    }
+
+    setPreview(item: Product) {
+        this.preview = item.id;
+        this.emitChanges('preview:changed', item);
     }
 
     addToCart(item: Product) {

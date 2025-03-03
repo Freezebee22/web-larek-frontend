@@ -12,7 +12,7 @@ export class Page extends Component<IPage> {
     
     this._counter = ensureElement<HTMLElement>('.header__basket-counter');
     this._catalog = ensureElement<HTMLElement>('.gallery');
-    this._cart = ensureElement<HTMLElement>('header__basket');
+    this._cart = ensureElement<HTMLElement>('.header__basket');
 
     this._cart.addEventListener('click', () => {
         this.events.emit('cart:open');

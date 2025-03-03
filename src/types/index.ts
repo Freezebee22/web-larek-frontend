@@ -9,10 +9,10 @@ export type FormErrors = Partial<Record<keyof IOrder, string>>;
 
 export interface IProduct {
     id: string;
-    name: string;
+    title: string;
     description: string;
-    icon: string;
-    cost: number | null;
+    image: string;
+    price: number | null;
     category: Category;
     inCart: boolean;
 }
@@ -28,8 +28,8 @@ export interface ICatalog {
 }
 
 export interface ICart {
-    items: ICatalog;
-    totalCost: number;
+    items: HTMLElement[];
+    total: number;
 }
 
 export interface IOrder extends IDeliveryForm, IContactForm {
@@ -37,7 +37,7 @@ export interface IOrder extends IDeliveryForm, IContactForm {
     total: number;
 }
 
-interface IOrderResult {
+export interface IOrderResult {
     id: string;
     total: number;
 }
@@ -51,6 +51,7 @@ export interface IAppState {
     clearCart(): void; // очистка всей корзины
     clearOrder(): void; // очистка заказа
     setCatalog(items: IProduct[]): void; // установить товары в каталог
+    setPreview(item: IProduct): void; // открыть инфо о товаре
     addToCart(item: IProduct): void; // добавить в корзину товар
     removeFromCart(id: string): void; // удалить из корзины товар
     updateCart(): void; // будет оповещать всех об изменении корзины

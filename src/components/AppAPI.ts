@@ -35,6 +35,7 @@ export class AppApi extends Api implements IAppApi {
     }
 
     orderProducts(order: IOrder): Promise<IOrderResult> {
+        console.log(order);
         return this.post(`/order`, order)
         .then((data) => data as IOrderResult);
       }

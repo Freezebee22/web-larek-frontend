@@ -33,7 +33,7 @@ export interface ICart {
 }
 
 export interface IOrder extends IDeliveryForm, IContactForm {
-    cart: IProduct[];
+    items: string[];
     total: number;
 }
 
@@ -95,6 +95,14 @@ export interface IModal {
 
 export interface IActions {
     action: (event: MouseEvent) => void;
+}
+
+export interface ISuccess {
+    total: number;
+}
+
+export interface ISuccessActions {
+    action: () => void;
 }
 
 // типы для ивентов

@@ -11,7 +11,7 @@ export class AppData extends Model<IAppState> {
         address: '',
         email: '',
         phone: '',
-        cart: [],
+        items: [],
         total: 0
     };
 
@@ -26,7 +26,7 @@ export class AppData extends Model<IAppState> {
             address: '',
             email: '',
             phone: '',
-            cart: [],
+            items: [],
             total: 0
         };
     }

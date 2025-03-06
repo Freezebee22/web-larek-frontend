@@ -135,7 +135,7 @@ events.on('payment:toggle', (target: HTMLElement) => {
     }
 });
 
-events.on('formErrors:change', (errors: Partial<IOrder>) => {
+events.on('errors:changed', (errors: Partial<IOrder>) => {
     const {payment, address, email, phone} = errors;
     delivery.valid = !payment && !address;
     contact.valid = !email && !phone;
